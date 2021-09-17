@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   ApolloClient,
@@ -37,7 +37,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+export default function App() {
+  useEffect(() => {
+    document.title = 'Still Running';
+  }, []);
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -60,4 +63,4 @@ function App() {
   );
 }
 
-export default App;
+
